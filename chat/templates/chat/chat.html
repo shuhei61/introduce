@@ -2,14 +2,72 @@
 <html>
 <head>
     <title>Chatbot</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f7f7f7;
+          margin: 0;
+          padding: 0;
+      }
+
+      h1 {
+          text-align: center;
+          margin: 20px 0;
+      }
+
+      #chatbox {
+          background-color: #fff;
+          border: 1px solid #ccc;
+          padding: 10px;
+          max-width: 500px;
+          margin: 0 auto;
+      }
+
+      .user-message,
+      .bot-message {
+          margin: 5px 0;
+          padding: 8px 10px;
+          border-radius: 5px;
+      }
+
+      .user-message {
+          background-color: #d2eafb;
+          text-align: right;
+      }
+
+      .bot-message {
+          background-color: #f0f0f0;
+      }
+
+      #chat_form {
+          display: flex;
+          margin: 50px auto 0;
+          max-width: 500px;
+      }
+
+      #user_input {
+          flex: 1;
+          padding: 5px;
+          border: 1px solid #ccc;
+          border-radius: 5px 0 0 5px;
+      }
+
+      #send_btn {
+          padding: 5px 10px;
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          border-radius: 0 5px 5px 0;
+          cursor: pointer;
+      }
+  </style>
 </head>
 <body>
-    <h1>Chat with the Chatbot</h1>
-    
+    <h1>あなたの質問にお答えします</h1>
+
     <div id="chatbox">
-      <!-- チャットの会話ログ -->
       {% if response %}
-      <div class="bot-message">{{ response }}</div>
+      <div class="bot-message">{{ response|linebreaks }}</div>
       {% endif %}
     </div>
 
