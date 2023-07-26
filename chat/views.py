@@ -12,6 +12,6 @@ def chat_view(request):
         intent, entities = extract_intent(text)
         skill = skills[intent]
         resp = skill(**entities)
-        return HttpResponse(resp)
+        return render(request, 'chat/chat.html', {'response': resp})
     else:
         return render(request, 'chat/chat.html')
